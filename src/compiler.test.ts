@@ -110,7 +110,3 @@ describe('compiler', () => {
     });
   });
 });
-
-/*
-assert.deepStrictEqual(compiler(input), output, 'Compiler should turn `input` into `output`');
-*/
