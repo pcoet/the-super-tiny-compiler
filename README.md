@@ -1,5 +1,8 @@
 [![The Super Tiny Compiler](https://cloud.githubusercontent.com/assets/952783/21579290/5755288a-cf75-11e6-90e0-029529a44a38.png)](the-super-tiny-compiler.js)
 
+**TODO**
+* Go through Code Generator and remove disabled linting rules and type correctly. You'll need to add a number of optional properties to the ASTNote type, or create a NewASTNode type.
+
 ***Welcome to The Super Tiny Compiler!***
 
 This is an ultra-simplified example of all the major pieces of a modern compiler

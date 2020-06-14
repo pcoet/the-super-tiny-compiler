@@ -1,80 +1,5 @@
-'use strict';
-
-/**
- * TTTTTTTTTTTTTTTTTTTTTTTHHHHHHHHH     HHHHHHHHHEEEEEEEEEEEEEEEEEEEEEE
- * T:::::::::::::::::::::TH:::::::H     H:::::::HE::::::::::::::::::::E
- * T:::::::::::::::::::::TH:::::::H     H:::::::HE::::::::::::::::::::E
- * T:::::TT:::::::TT:::::THH::::::H     H::::::HHEE::::::EEEEEEEEE::::E
- * TTTTTT  T:::::T  TTTTTT  H:::::H     H:::::H    E:::::E       EEEEEE
- *         T:::::T          H:::::H     H:::::H    E:::::E
- *         T:::::T          H::::::HHHHH::::::H    E::::::EEEEEEEEEE
- *         T:::::T          H:::::::::::::::::H    E:::::::::::::::E
- *         T:::::T          H:::::::::::::::::H    E:::::::::::::::E
- *         T:::::T          H::::::HHHHH::::::H    E::::::EEEEEEEEEE
- *         T:::::T          H:::::H     H:::::H    E:::::E
- *         T:::::T          H:::::H     H:::::H    E:::::E       EEEEEE
- *       TT:::::::TT      HH::::::H     H::::::HHEE::::::EEEEEEEE:::::E
- *       T:::::::::T      H:::::::H     H:::::::HE::::::::::::::::::::E
- *       T:::::::::T      H:::::::H     H:::::::HE::::::::::::::::::::E
- *       TTTTTTTTTTT      HHHHHHHHH     HHHHHHHHHEEEEEEEEEEEEEEEEEEEEEE
- *
- *    SSSSSSSSSSSSSSS UUUUUUUU     UUUUUUUUPPPPPPPPPPPPPPPPP   EEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRR
- *  SS:::::::::::::::SU::::::U     U::::::UP::::::::::::::::P  E::::::::::::::::::::ER::::::::::::::::R
- * S:::::SSSSSS::::::SU::::::U     U::::::UP::::::PPPPPP:::::P E::::::::::::::::::::ER::::::RRRRRR:::::R
- * S:::::S     SSSSSSSUU:::::U     U:::::UUPP:::::P     P:::::PEE::::::EEEEEEEEE::::ERR:::::R     R:::::R
- * S:::::S             U:::::U     U:::::U   P::::P     P:::::P  E:::::E       EEEEEE  R::::R     R:::::R
- * S:::::S             U:::::U     U:::::U   P::::P     P:::::P  E:::::E               R::::R     R:::::R
- *  S::::SSSS          U:::::U     U:::::U   P::::PPPPPP:::::P   E::::::EEEEEEEEEE     R::::RRRRRR:::::R
- *   SS::::::SSSSS     U:::::U     U:::::U   P:::::::::::::PP    E:::::::::::::::E     R:::::::::::::RR
- *     SSS::::::::SS   U:::::U     U:::::U   P::::PPPPPPPPP      E:::::::::::::::E     R::::RRRRRR:::::R
- *        SSSSSS::::S  U:::::U     U:::::U   P::::P              E::::::EEEEEEEEEE     R::::R     R:::::R
- *             S:::::S U:::::U     U:::::U   P::::P              E:::::E               R::::R     R:::::R
- *             S:::::S U::::::U   U::::::U   P::::P              E:::::E       EEEEEE  R::::R     R:::::R
- * SSSSSSS     S:::::S U:::::::UUU:::::::U PP::::::PP          EE::::::EEEEEEEE:::::ERR:::::R     R:::::R
- * S::::::SSSSSS:::::S  UU:::::::::::::UU  P::::::::P          E::::::::::::::::::::ER::::::R     R:::::R
- * S:::::::::::::::SS     UU:::::::::UU    P::::::::P          E::::::::::::::::::::ER::::::R     R:::::R
- *  SSSSSSSSSSSSSSS         UUUUUUUUU      PPPPPPPPPP          EEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRR
- *
- * TTTTTTTTTTTTTTTTTTTTTTTIIIIIIIIIINNNNNNNN        NNNNNNNNYYYYYYY       YYYYYYY
- * T:::::::::::::::::::::TI::::::::IN:::::::N       N::::::NY:::::Y       Y:::::Y
- * T:::::::::::::::::::::TI::::::::IN::::::::N      N::::::NY:::::Y       Y:::::Y
- * T:::::TT:::::::TT:::::TII::::::IIN:::::::::N     N::::::NY::::::Y     Y::::::Y
- * TTTTTT  T:::::T  TTTTTT  I::::I  N::::::::::N    N::::::NYYY:::::Y   Y:::::YYY
- *         T:::::T          I::::I  N:::::::::::N   N::::::N   Y:::::Y Y:::::Y
- *         T:::::T          I::::I  N:::::::N::::N  N::::::N    Y:::::Y:::::Y
- *         T:::::T          I::::I  N::::::N N::::N N::::::N     Y:::::::::Y
- *         T:::::T          I::::I  N::::::N  N::::N:::::::N      Y:::::::Y
- *         T:::::T          I::::I  N::::::N   N:::::::::::N       Y:::::Y
- *         T:::::T          I::::I  N::::::N    N::::::::::N       Y:::::Y
- *         T:::::T          I::::I  N::::::N     N:::::::::N       Y:::::Y
- *       TT:::::::TT      II::::::IIN::::::N      N::::::::N       Y:::::Y
- *       T:::::::::T      I::::::::IN::::::N       N:::::::N    YYYY:::::YYYY
- *       T:::::::::T      I::::::::IN::::::N        N::::::N    Y:::::::::::Y
- *       TTTTTTTTTTT      IIIIIIIIIINNNNNNNN         NNNNNNN    YYYYYYYYYYYYY
- *
- *         CCCCCCCCCCCCC     OOOOOOOOO     MMMMMMMM               MMMMMMMMPPPPPPPPPPPPPPPPP   IIIIIIIIIILLLLLLLLLLL             EEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRR
- *      CCC::::::::::::C   OO:::::::::OO   M:::::::M             M:::::::MP::::::::::::::::P  I::::::::IL:::::::::L             E::::::::::::::::::::ER::::::::::::::::R
- *    CC:::::::::::::::C OO:::::::::::::OO M::::::::M           M::::::::MP::::::PPPPPP:::::P I::::::::IL:::::::::L             E::::::::::::::::::::ER::::::RRRRRR:::::R
- *   C:::::CCCCCCCC::::CO:::::::OOO:::::::OM:::::::::M         M:::::::::MPP:::::P     P:::::PII::::::IILL:::::::LL             EE::::::EEEEEEEEE::::ERR:::::R     R:::::R
- *  C:::::C       CCCCCCO::::::O   O::::::OM::::::::::M       M::::::::::M  P::::P     P:::::P  I::::I    L:::::L                 E:::::E       EEEEEE  R::::R     R:::::R
- * C:::::C              O:::::O     O:::::OM:::::::::::M     M:::::::::::M  P::::P     P:::::P  I::::I    L:::::L                 E:::::E               R::::R     R:::::R
- * C:::::C              O:::::O     O:::::OM:::::::M::::M   M::::M:::::::M  P::::PPPPPP:::::P   I::::I    L:::::L                 E::::::EEEEEEEEEE     R::::RRRRRR:::::R
- * C:::::C              O:::::O     O:::::OM::::::M M::::M M::::M M::::::M  P:::::::::::::PP    I::::I    L:::::L                 E:::::::::::::::E     R:::::::::::::RR
- * C:::::C              O:::::O     O:::::OM::::::M  M::::M::::M  M::::::M  P::::PPPPPPPPP      I::::I    L:::::L                 E:::::::::::::::E     R::::RRRRRR:::::R
- * C:::::C              O:::::O     O:::::OM::::::M   M:::::::M   M::::::M  P::::P              I::::I    L:::::L                 E::::::EEEEEEEEEE     R::::R     R:::::R
- * C:::::C              O:::::O     O:::::OM::::::M    M:::::M    M::::::M  P::::P              I::::I    L:::::L                 E:::::E               R::::R     R:::::R
- *  C:::::C       CCCCCCO::::::O   O::::::OM::::::M     MMMMM     M::::::M  P::::P              I::::I    L:::::L         LLLLLL  E:::::E       EEEEEE  R::::R     R:::::R
- *   C:::::CCCCCCCC::::CO:::::::OOO:::::::OM::::::M               M::::::MPP::::::PP          II::::::IILL:::::::LLLLLLLLL:::::LEE::::::EEEEEEEE:::::ERR:::::R     R:::::R
- *    CC:::::::::::::::C OO:::::::::::::OO M::::::M               M::::::MP::::::::P          I::::::::IL::::::::::::::::::::::LE::::::::::::::::::::ER::::::R     R:::::R
- *      CCC::::::::::::C   OO:::::::::OO   M::::::M               M::::::MP::::::::P          I::::::::IL::::::::::::::::::::::LE::::::::::::::::::::ER::::::R     R:::::R
- *         CCCCCCCCCCCCC     OOOOOOOOO     MMMMMMMM               MMMMMMMMPPPPPPPPPP          IIIIIIIIIILLLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRR
- *
- * =======================================================================================================================================================================
- * =======================================================================================================================================================================
- * =======================================================================================================================================================================
- * =======================================================================================================================================================================
- */
-
+/* eslint-disable no-underscore-dangle */
+/* eslint no-continue: 0 */
 /**
  * Today we're going to write a compiler together. But not just any compiler... A
  * super duper teeny tiny compiler! A compiler that is so small that if you
@@ -361,6 +286,78 @@
 
 /**
  * ============================================================================
+ *                                    TYPES
+ * ============================================================================
+ */
+
+interface LeftParenToken {
+  type: 'paren';
+  value: '(';
+}
+
+interface RightParenToken {
+  type: 'paren';
+  value: ')';
+}
+
+interface NumberToken {
+  type: 'number';
+  value: string;
+}
+
+interface StringToken {
+  type: 'string';
+  value: string;
+}
+
+interface NameToken {
+  type: 'name';
+  value: string;
+}
+
+export type Token = LeftParenToken | RightParenToken | NumberToken | StringToken | NameToken;
+
+interface HasContext {
+  _context?: unknown[]; // TODO: replace this with ASTNode[]
+}
+
+export interface AST extends HasContext {
+  type: 'Program';
+  body: ASTNode[];
+}
+
+type LiteralNodeType = 'NumberLiteral' | 'StringLiteral';
+
+interface LiteralNode extends HasContext {
+  type: LiteralNodeType;
+  value: Token['value'];
+}
+
+interface CallExpressionNode extends HasContext {
+  type: 'CallExpression';
+  name: string;
+  params: ASTNode[];
+}
+
+type ASTNode = LiteralNode | CallExpressionNode | AST;
+
+interface Visitor {
+  NumberLiteral: {
+    enter: (node: ASTNode, parent: ASTNode) => void;
+    exit?: (node: ASTNode, parent: ASTNode) => void;
+  };
+  StringLiteral: {
+    enter: (node: ASTNode, parent: ASTNode) => void;
+    exit?: (node: ASTNode, parent: ASTNode) => void;
+  };
+  CallExpression: {
+    enter: (node: ASTNode, parent: ASTNode) => void;
+    exit?: (node: ASTNode, parent: ASTNode) => void;
+  };
+}
+
+/**
+ * ============================================================================
  *                                   (/^▽^)/
  *                                THE TOKENIZER!
  * ============================================================================
@@ -378,13 +375,12 @@
 
 // We start by accepting an input string of code, and we're gonna set up two
 // things...
-function tokenizer(input) {
-
+export function tokenizer(input: string): Token[] {
   // A `current` variable for tracking our position in the code like a cursor.
   let current = 0;
 
   // And a `tokens` array for pushing our tokens to.
-  let tokens = [];
+  const tokens: Token[] = [];
 
   // We start by creating a `while` loop where we are setting up our `current`
   // variable to be incremented as much as we want `inside` the loop.
@@ -392,7 +388,6 @@ function tokenizer(input) {
   // We do this because we may want to increment `current` many times within a
   // single loop because our tokens can be any length.
   while (current < input.length) {
-
     // We're also going to store the `current` character in the `input`.
     let char = input[current];
 
@@ -402,7 +397,6 @@ function tokenizer(input) {
     //
     // We check to see if we have an open parenthesis:
     if (char === '(') {
-
       // If we do, we push a new token with the type `paren` and set the value
       // to an open parenthesis.
       tokens.push({
@@ -411,7 +405,7 @@ function tokenizer(input) {
       });
 
       // Then we increment `current`
-      current++;
+      current += 1;
 
       // And we `continue` onto the next cycle of the loop.
       continue;
@@ -425,7 +419,7 @@ function tokenizer(input) {
         type: 'paren',
         value: ')',
       });
-      current++;
+      current += 1;
       continue;
     }
 
@@ -436,9 +430,9 @@ function tokenizer(input) {
     //
     // So here we're just going to test for existence and if it does exist we're
     // going to just `continue` on.
-    let WHITESPACE = /\s/;
+    const WHITESPACE = /\s/;
     if (WHITESPACE.test(char)) {
-      current++;
+      current += 1;
       continue;
     }
 
@@ -451,9 +445,8 @@ function tokenizer(input) {
     //        Only two separate tokens
     //
     // So we start this off when we encounter the first number in a sequence.
-    let NUMBERS = /[0-9]/;
+    const NUMBERS = /[0-9]/;
     if (NUMBERS.test(char)) {
-
       // We're going to create a `value` string that we are going to push
       // characters to.
       let value = '';
@@ -463,7 +456,8 @@ function tokenizer(input) {
       // that is a number to our `value` and incrementing `current` as we go.
       while (NUMBERS.test(char)) {
         value += char;
-        char = input[++current];
+        current += 1;
+        char = input[current];
       }
 
       // After that we push our `number` token to the `tokens` array.
@@ -485,17 +479,20 @@ function tokenizer(input) {
       let value = '';
 
       // We'll skip the opening double quote in our token.
-      char = input[++current];
+      current += 1;
+      char = input[current];
 
       // Then we'll iterate through each character until we reach another
       // double quote.
       while (char !== '"') {
         value += char;
-        char = input[++current];
+        current += 1;
+        char = input[current];
       }
 
       // Skip the closing double quote.
-      char = input[++current];
+      current += 1;
+      char = input[current];
 
       // And add our `string` token to the `tokens` array.
       tokens.push({ type: 'string', value });
@@ -511,7 +508,7 @@ function tokenizer(input) {
     //    ^^^
     //    Name token
     //
-    let LETTERS = /[a-z]/i;
+    const LETTERS = /[a-z]/i;
     if (LETTERS.test(char)) {
       let value = '';
 
@@ -519,7 +516,8 @@ function tokenizer(input) {
       // a value.
       while (LETTERS.test(char)) {
         value += char;
-        char = input[++current];
+        current += 1;
+        char = input[current];
       }
 
       // And pushing that value as a token with the type `name` and continuing.
@@ -530,7 +528,7 @@ function tokenizer(input) {
 
     // Finally if we have not matched a character by now, we're going to throw
     // an error and completely exit.
-    throw new TypeError('I dont know what this character is: ' + char);
+    throw new TypeError(`Unrecognized character: ${char}`);
   }
 
   // Then at the end of our `tokenizer` we simply return the tokens array.
@@ -552,15 +550,13 @@ function tokenizer(input) {
  */
 
 // Okay, so we define a `parser` function that accepts our array of `tokens`.
-function parser(tokens) {
-
+export function parser(tokens: Token[]): AST {
   // Again we keep a `current` variable that we will use as a cursor.
   let current = 0;
 
   // But this time we're going to use recursion instead of a `while` loop. So we
   // define a `walk` function.
-  function walk() {
-
+  function walk(): ASTNode {
     // Inside the walk function we start by grabbing the `current` token.
     let token = tokens[current];
 
@@ -569,51 +565,51 @@ function parser(tokens) {
     //
     // We test to see if we have a `number` token.
     if (token.type === 'number') {
-
       // If we have one, we'll increment `current`.
-      current++;
+      current += 1;
 
       // And we'll return a new AST node called `NumberLiteral` and setting its
       // value to the value of our token.
       return {
         type: 'NumberLiteral',
         value: token.value,
+        _context: [],
       };
     }
 
     // If we have a string we will do the same as number and create a
     // `StringLiteral` node.
     if (token.type === 'string') {
-      current++;
+      current += 1;
 
       return {
         type: 'StringLiteral',
         value: token.value,
+        _context: [],
       };
     }
 
     // Next we're going to look for CallExpressions. We start this off when we
     // encounter an open parenthesis.
-    if (
-      token.type === 'paren' &&
-      token.value === '('
-    ) {
-
+    if (token.type === 'paren' && token.value === '(') {
       // We'll increment `current` to skip the parenthesis since we don't care
       // about it in our AST.
-      token = tokens[++current];
+      current += 1;
+      token = tokens[current];
 
       // We create a base node with the type `CallExpression`, and we're going
       // to set the name as the current token's value since the next token after
       // the open parenthesis is the name of the function.
-      let node = {
+      const node: CallExpressionNode = {
         type: 'CallExpression',
         name: token.value,
         params: [],
+        _context: [],
       };
 
       // We increment `current` *again* to skip the name token.
-      token = tokens[++current];
+      current += 1;
+      token = tokens[current];
 
       // And now we want to loop through each token that will be the `params` of
       // our `CallExpression` until we encounter a closing parenthesis.
@@ -650,8 +646,8 @@ function parser(tokens) {
       // token with a `type` of `'paren'` and a `value` of a closing
       // parenthesis.
       while (
-        (token.type !== 'paren') ||
-        (token.type === 'paren' && token.value !== ')')
+        (token.type !== 'paren')
+        || (token.type === 'paren' && token.value !== ')')
       ) {
         // we'll call the `walk` function which will return a `node` and we'll
         // push it into our `node.params`.
@@ -661,7 +657,7 @@ function parser(tokens) {
 
       // Finally we will increment `current` one last time to skip the closing
       // parenthesis.
-      current++;
+      current += 1;
 
       // And return the node.
       return node;
@@ -674,9 +670,10 @@ function parser(tokens) {
 
   // Now, we're going to create our AST which will have a root which is a
   // `Program` node.
-  let ast = {
+  const ast: AST = {
     type: 'Program',
     body: [],
+    _context: [],
   };
 
   // And we're going to kickstart our `walk` function, pushing nodes to our
@@ -740,33 +737,36 @@ function parser(tokens) {
 
 // So we define a traverser function which accepts an AST and a
 // visitor. Inside we're going to define two functions...
-function traverser(ast, visitor) {
-
+export function traverser(ast: AST, visitor: Visitor): void {
   // A `traverseArray` function that will allow us to iterate over an array and
   // call the next function that we will define: `traverseNode`.
-  function traverseArray(array, parent) {
-    array.forEach(child => {
+  function traverseArray(array: ASTNode[], parent: ASTNode) {
+    array.forEach((child) => {
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       traverseNode(child, parent);
     });
   }
 
   // `traverseNode` will accept a `node` and its `parent` node. So that it can
   // pass both to our visitor methods.
-  function traverseNode(node, parent) {
-
+  function traverseNode(node: ASTNode, parent: ASTNode | null) {
     // We start by testing for the existence of a method on the visitor with a
     // matching `type`.
-    let methods = visitor[node.type];
+    const nodeType = node.type;
+    let methods;
+    // Test for the existence of a matching `type` method on the visitor.
+    if (nodeType !== 'Program') {
+      methods = visitor[nodeType];
+    }
 
     // If there is an `enter` method for this node type we'll call it with the
     // `node` and its `parent`.
-    if (methods && methods.enter) {
+    if (methods && methods.enter && parent) {
       methods.enter(node, parent);
     }
 
     // Next we are going to split things up by the current node type.
     switch (node.type) {
-
       // We'll start with our top level `Program`. Since Program nodes have a
       // property named body that has an array of nodes, we will call
       // `traverseArray` to traverse down into them.
@@ -791,12 +791,12 @@ function traverser(ast, visitor) {
       // And again, if we haven't recognized the node type then we'll throw an
       // error.
       default:
-        throw new TypeError(node.type);
+        throw new TypeError('Unrecognized type');
     }
 
     // If there is an `exit` method for this node type we'll call it with the
     // `node` and its `parent`.
-    if (methods && methods.exit) {
+    if (methods && methods.exit && parent) {
       methods.exit(node, parent);
     }
   }
@@ -855,11 +855,10 @@ function traverser(ast, visitor) {
  */
 
 // So we have our transformer function which will accept the lisp ast.
-function transformer(ast) {
-
+export function transformer(ast: AST): AST {
   // We'll create a `newAst` which like our previous AST will have a program
   // node.
-  let newAst = {
+  const newAst: AST = {
     type: 'Program',
     body: [],
   };
@@ -871,72 +870,82 @@ function transformer(ast) {
   //
   // Just take note that the context is a reference *from* the old ast *to* the
   // new ast.
+  // eslint-disable-next-line no-param-reassign
   ast._context = newAst.body;
 
   // We'll start by calling the traverser function with our ast and a visitor.
   traverser(ast, {
-
     // The first visitor method accepts any `NumberLiteral`
     NumberLiteral: {
       // We'll visit them on enter.
       enter(node, parent) {
         // We'll create a new node also named `NumberLiteral` that we will push to
         // the parent context.
-        parent._context.push({
-          type: 'NumberLiteral',
-          value: node.value,
-        });
+        if (node.type === 'NumberLiteral' && parent._context) {
+          parent._context.push({
+            type: 'NumberLiteral',
+            value: node.value,
+          });
+        }
       },
     },
 
     // Next we have `StringLiteral`
     StringLiteral: {
       enter(node, parent) {
-        parent._context.push({
-          type: 'StringLiteral',
-          value: node.value,
-        });
+        if (node.type === 'StringLiteral' && parent._context) {
+          parent._context.push({
+            type: 'StringLiteral',
+            value: node.value,
+          });
+        }
       },
     },
 
     // Next up, `CallExpression`.
     CallExpression: {
       enter(node, parent) {
-
+        let expression;
         // We start creating a new node `CallExpression` with a nested
         // `Identifier`.
-        let expression = {
-          type: 'CallExpression',
-          callee: {
-            type: 'Identifier',
-            name: node.name,
-          },
-          arguments: [],
-        };
-
+        if (node.type === 'CallExpression') {
+          expression = {
+            type: 'CallExpression',
+            callee: {
+              type: 'Identifier',
+              name: node.name,
+            },
+            arguments: [],
+          };
+        }
         // Next we're going to define a new context on the original
         // `CallExpression` node that will reference the `expression`'s arguments
         // so that we can push arguments.
-        node._context = expression.arguments;
+        if (expression) {
+          // eslint-disable-next-line no-param-reassign
+          node._context = expression.arguments;
+        }
 
         // Then we're going to check if the parent node is a `CallExpression`.
         // If it is not...
         if (parent.type !== 'CallExpression') {
-
           // We're going to wrap our `CallExpression` node with an
           // `ExpressionStatement`. We do this because the top level
           // `CallExpression` in JavaScript are actually statements.
           expression = {
             type: 'ExpressionStatement',
+            // eslint-disable-next-line object-shorthand
             expression: expression,
           };
         }
 
         // Last, we push our (possibly wrapped) `CallExpression` to the `parent`'s
         // `context`.
-        parent._context.push(expression);
+        if (expression && parent._context) {
+          parent._context.push(expression);
+        }
       },
-    }
+    },
   });
 
   // At the end of our transformer function we'll return the new ast that we
@@ -958,14 +967,17 @@ function transformer(ast) {
  * the tree into one giant string.
  */
 
-function codeGenerator(node) {
-
+// eslint-disable-next-line max-len
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+export function codeGenerator(node: any): string {
   // We'll break things down by the `type` of the `node`.
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   switch (node.type) {
-
     // If we have a `Program` node. We will map through each node in the `body`
     // and run them through the code generator and join them with a newline.
     case 'Program':
+      // eslint-disable-next-line max-len
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       return node.body.map(codeGenerator)
         .join('\n');
 
@@ -973,8 +985,9 @@ function codeGenerator(node) {
     // expression and we'll add a semicolon...
     case 'ExpressionStatement':
       return (
-        codeGenerator(node.expression) +
-        ';' // << (...because we like to code the *correct* way)
+        // eslint-disable-next-line prefer-template, @typescript-eslint/no-unsafe-member-access
+        codeGenerator(node.expression)
+        + ';' // << (...because we like to code the *correct* way)
       );
 
     // For `CallExpression` we will print the `callee`, add an open
@@ -983,27 +996,38 @@ function codeGenerator(node) {
     // we'll add a closing parenthesis.
     case 'CallExpression':
       return (
-        codeGenerator(node.callee) +
-        '(' +
-        node.arguments.map(codeGenerator)
-          .join(', ') +
-        ')'
+        // eslint-disable-next-line max-len
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands, prefer-template, @typescript-eslint/no-unsafe-member-access
+        codeGenerator(node.callee)
+        + '('
+        // eslint-disable-next-line max-len
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+        + node.arguments.map(codeGenerator)
+          .join(', ')
+          + ')'
       );
 
     // For `Identifier` we'll just return the `node`'s name.
     case 'Identifier':
+      // eslint-disable-next-line max-len
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
       return node.name;
 
     // For `NumberLiteral` we'll just return the `node`'s value.
     case 'NumberLiteral':
+      // eslint-disable-next-line max-len
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
       return node.value;
 
     // For `StringLiteral` we'll add quotations around the `node`'s value.
     case 'StringLiteral':
+      // eslint-disable-next-line max-len
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands, prefer-template, @typescript-eslint/no-unsafe-member-access
       return '"' + node.value + '"';
 
     // And if we haven't recognized the node, we'll throw an error.
     default:
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       throw new TypeError(node.type);
   }
 }
@@ -1025,11 +1049,11 @@ function codeGenerator(node) {
  *   4. newAst => generator   => output
  */
 
-function compiler(input) {
-  let tokens = tokenizer(input);
-  let ast    = parser(tokens);
-  let newAst = transformer(ast);
-  let output = codeGenerator(newAst);
+export function compiler(input: string): string {
+  const tokens = tokenizer(input);
+  const ast = parser(tokens);
+  const newAst = transformer(ast);
+  const output = codeGenerator(newAst);
 
   // and simply return the output!
   return output;
@@ -1041,13 +1065,3 @@ function compiler(input) {
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!YOU MADE IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  * ============================================================================
  */
-
-// Now I'm just exporting everything...
-module.exports = {
-  tokenizer,
-  parser,
-  traverser,
-  transformer,
-  codeGenerator,
-  compiler,
-};
